@@ -140,7 +140,7 @@
 
 				scene.add(lod1);
 				files.map( filename => {
-					loader.load(`gltfs/tiny1.5/${filename}.glb`, function (gltf) {
+					loader.load(`gltfs/tiny/${filename}.glb`, function (gltf) {
 						gltf.scene.position.set(550, 0, 0);
 						lod1.add(gltf.scene);
 						console.log( renderer.info.render.triangles );
