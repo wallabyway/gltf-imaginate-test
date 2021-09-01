@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="skeleton.min.css">
+    <style>
+    .modelbrowser {
+        border: 1px solid white;
+        width: 210px;
+        height: 95%;
+        position: fixed;
+        top: 10px;
+        left:  40px;
+    }
+
+    .button-primary { text-align: left; width: 200px; margin: 1px }
+
+    </style>
+    <title>SkeletonCSS</title>
+</head>
+
+<body style="margin:0; overflow-y: hidden;">
+      <div class="modelbrowser"><div class="container">
+        <ul id="_layers" class="navbar-list">
+        </ul>
+      </div>
+  <div id="forgeViewer"></div>
+</body>
+
+<script>
+
+
+const files = ['_GEN_3D', '_PX_B1006A', '_OX_A-NH3_COMP', '_VX_A_COMP-B', '_SX_B1006A', '_LX_B1006A', '_IX_B1006A', '_EX_B1006A', '_FX_B1006A', '_TX_B1006A', '_PX_B1007R', '_PX_B1008R', '_PX_B1009R', '_UX_B1006U', '_TX_B1007R', '_TX_B1008R', '_TX_B1009R', '_IX_B_TELECOM_TP'];
+
+function addButton( label, cbfn) {
+    const node = document.createElement('li');
+    node.setAttribute('class','navbar-item');
+    node.value = label;
+    node.innerHTML = `<button class="navbar-button button-primary"><input type="checkbox" checked>${label}</button>`;
+    document.getElementById("_layers").appendChild(node);
+    node.onclick = i => {
+        console.log(i.target.innerText);
+    }
+}
+
+files.map( i => {
+    addButton (i, i => {alert(i)});
+});
+
+</script>
